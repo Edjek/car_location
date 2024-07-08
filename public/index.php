@@ -8,3 +8,5 @@ use App\Core\Router;
 Autoloader::autoload();
 
 $router = new Router();
+
+$router->execute();
