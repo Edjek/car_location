@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -8,11 +8,7 @@
 </head>
 
 <body>
-    <header></header>
-    <main>
-        <h1>Accueil</h1>
-    </main>
-    <footer></footer>
+    <?php echo $id; ?>
 </body>
 
 </html>

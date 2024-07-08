@@ -2,8 +2,14 @@
 
 namespace App\Core;
 
+use App\Controller\CarController;
 use App\Controller\HomeController;
 
+
+// CREER une route /reservation/un truc dynamique
+    // CarController
+        // methode showReservationDetails
+        // Affiche page de reservation
 class Router
 {
     private array $routes;
@@ -16,10 +22,13 @@ class Router
             $this->currentController = new HomeController();
             $this->currentController->index();
         });
+        $this->add_route('/reservation/{id}', function($param){
+            $this->currentController = new CarController();
+            $this->currentController->showReservationDetails($param);
+        });
         $this->add_route('/contactez-nous', function () {
         });
         $this->add_route('/voiture/{id}', function ($param) {
-
         });
     }
 

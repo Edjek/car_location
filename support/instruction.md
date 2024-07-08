@@ -94,6 +94,13 @@ Le projet utilise une base de données MySQL. Suivez les étapes ci-dessous pour
 2. **Créer les tables**
 
     ```sql
+    -- Table Clients
+    CREATE TABLE client (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        name VARCHAR(100) NOT NULL,
+        email VARCHAR(100) NOT NULL,
+        phone VARCHAR(20)
+    );
 
     -- Table Voitures
     CREATE TABLE car (
@@ -104,4 +111,115 @@ Le projet utilise une base de données MySQL. Suivez les étapes ci-dessous pour
         image VARCHAR(255)
     );
 
+    -- Table Locations
+    CREATE TABLE rental (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        client_id INT,
+        car_id INT,
+        start_date DATE,
+        end_date DATE,
+        FOREIGN KEY (client_id) REFERENCES client(id),
+        FOREIGN KEY (car_id) REFERENCES car(id)
+    );
     ```
+
+3. Insérez des données dans les tables.
+
+```sql
+-- Insertion de données
+INSERT INTO car (model, description, price, image_path) VALUES
+('Toyota Corolla', 'Voiture économique et fiable', 20000.00, 'images/toyota_corolla.jpg'),
+('Honda Civic', 'Compacte sportive avec de bonnes performances', 22.00, 'images/honda_civic.jpg'),
+('Ford Mustang', 'Voiture de sport emblématique avec un V8 puissant', 35.99, 'images/ford_mustang.jpg'),
+('Chevrolet Camaro', 'Muscle car avec un design agressif', 33.99, 'images/chevrolet_camaro.jpg'),
+('Tesla Model S', 'Voiture électrique de luxe avec une grande autonomie', 80.99, 'images/tesla_model_s.jpg'),
+('BMW 3 Series', 'Berline de luxe avec des performances dynamiques', 45.99, 'images/bmw_3_series.jpg'),
+('Audi A4', 'Berline élégante avec des technologies avancées', 42.99, 'images/audi_a4.jpg'),
+('Mercedes-Benz C-Class', 'Berline de luxe avec un intérieur raffiné', 48.99, 'images/mercedes_benz_c_class.jpg'),
+('Volkswagen Golf', 'Compacte polyvalente avec une bonne tenue de route', 25.99, 'images/volkswagen_golf.jpg'),
+('Nissan Leaf', 'Voiture électrique compacte avec une autonomie décente', 30.99, 'images/nissan_leaf.jpg');
+```
+
+## Exercice Pratique
+
+### Exercice 1 : Ajouter un Client
+
+1. Créez un formulaire HTML pour ajouter un nouveau client.
+2. Dans le contrôleur `ClientController`, créez une méthode `create` pour traiter la soumission du formulaire et ajouter un nouveau client à la base de données.
+
+#### Solution
+
+```html
+<!-- Formulaire HTML -->
+<form action="client/create" method="post">
+    <label for="name">Nom:</label>
+    <input type="text" id="name" name="name" />
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" />
+    <label for="phone">Téléphone:</label>
+    <input type="text" id="phone" name="phone" />
+    <input type="submit" value="Ajouter" />
+</form>
+```
+
+```php
+// ClientController.php
+public function create() {
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $name = $_POST['name'];
+        $email = $_POST['email'];
+        $phone = $_POST['phone'];
+
+        $db = new Database();
+        $db->query("INSERT INTO client (name, email, phone) VALUES (?, ?, ?)", [$name, $email, $phone]);
+    }
+
+    // Afficher le formulaire
+    require 'views/client/create.php';
+}
+```
+
+### Exercice 2 : Lister les Voitures
+
+1. Créez une méthode `index` dans le contrôleur `CarController` pour récupérer et afficher toutes les voitures.
+2. Affichez la liste des voitures dans une vue HTML.
+
+#### Solution
+
+```php
+// CarController.php
+class CarController {
+    public function index() {
+        $db = new Database();
+        $cars = $db->query("SELECT * FROM car")->fetchAll();
+
+        require 'views/car/index.php';
+    }
+}
+```
+
+```html
+<!-- Vue HTML -->
+<table>
+    <thead>
+        <tr>
+            <th>Marque</th>
+            <th>Modèle</th>
+            <th>Année</th>
+            <th>Prix de location</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach ($cars as $car): ?>
+        <tr>
+            <td><?= $car['brand'] ?></td>
+            <td><?= $car['model'] ?></td>
+            <td><?= $car['year'] ?></td>
+            <td><?= $car['rental_price'] ?></td>
+        </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>
+```
+
+Ces exercices vous permettront de mettre en pratique les concepts de base pour la gestion des clients et des voitures dans une application de location de voitures.
