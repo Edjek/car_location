@@ -2,18 +2,23 @@
 
 namespace App\Core;
 
+use App\Controller\HomeController;
+
 class Router
 {
     private array $routes;
 
+    private $currentController;
+
     public function __construct()
     {
         $this->add_route('/', function () {
+            $this->currentController = new HomeController();
+            $this->currentController->index();
         });
-        $this->add_route('/contactez-nous', function ($a) {
+        $this->add_route('/contactez-nous', function () {
         });
         $this->add_route('/voiture/{id}', function ($param) {
-            var_dump($param);
 
         });
     }
@@ -33,15 +38,13 @@ class Router
         $requestUri = str_replace('/car-location', '', $requestUri);
 
         foreach ($this->routes as $key => $closure) {
-            if(preg_match($key, $requestUri, $matches)){
+            if (preg_match($key, $requestUri, $matches)) {
                 array_shift($matches);
                 $closure($matches);
                 return;
             }
         }
 
-        echo 'test';
-
-
+        require_once  '../templates/error-404.php';
     }
 }
