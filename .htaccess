@@ -5,5 +5,5 @@ RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f
 
 
-Règle de réécriture : redirige toutes les requêtes vers public/index.php en ajoutant l'URL demandée en paramètre
+# Règle de réécriture : redirige toutes les requêtes vers public/index.php en ajoutant l'URL demandée en paramètre
 RewriteRule ^(.*)$ public/index.php?url=$1 [QSA,L]
