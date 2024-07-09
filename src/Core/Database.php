@@ -13,14 +13,8 @@ class Database
 
     public static function initConnection()
     {
-        echo  'mysql:host=' . self::$host . ';dbname=' . self::$dbName . ', ' . self::$userName . ', ' . self::$password. '';
-
-        
         try {
-            self::$connexion = new \PDO('mysql:host=' . self::$host . ';dbname=' . self::$dbName . ', ' . self::$userName . ', ' . self::$password);
-
-
-
+            self::$connexion = new \PDO('mysql:host=' . self::$host . ';dbname=' . self::$dbName . ';charset=utf8mb4', self::$userName, self::$password);
         } catch (\PDOException $e) {
             echo 'Erreur' . $e->getMessage();
             exit;
