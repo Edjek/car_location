@@ -3,6 +3,7 @@
 namespace App\Core;
 
 use App\Controller\CarController;
+use App\Controller\UserController;
 use App\Controller\ContactController;
 use App\Controller\HomeController;
 
@@ -18,10 +19,17 @@ class Router
             $this->currentController = new HomeController();
             $this->currentController->index();
         });
-        $this->add_route('/reservation/{id}', function ($param) {
+
+        $this->add_route('/reservation/{id}/{name}', function ($param) {
             $this->currentController = new CarController();
             $this->currentController->showReservationDetails($param);
         });
+
+        $this->add_route('/connexion', function () {
+            $this->currentController = new UserController();
+            $this->currentController->showConnexionForm();
+        });
+
         $this->add_route('/contact', function () {
             $this->currentController = new ContactController();
             $this->currentController->showContactForm();
