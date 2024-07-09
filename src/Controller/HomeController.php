@@ -6,6 +6,6 @@ class HomeController
 {
     public function index()
     {
-        require_once '../templates/home.php';
+        require_once DIR_PATH . '/templates/home.php';
     }
 }

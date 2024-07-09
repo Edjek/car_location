@@ -7,8 +7,6 @@ class CarController
     public function showReservationDetails($param)
     {
         $id = $param['id'];
-        require_once '../templates/reservation.php';
+        require_once DIR_PATH . '/templates/reservation.php';
     }
-
-
 }

@@ -12,7 +12,7 @@ class Autoloader
             $path = str_replace('\\', DIRECTORY_SEPARATOR, $path);
             $dirPath = str_replace(DIRECTORY_SEPARATOR . "Core", '', __DIR__);
 
-            require_once $dirPath.$path;
+            require_once $dirPath . $path;
         });
     }
 }
