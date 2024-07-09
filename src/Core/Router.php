@@ -20,7 +20,7 @@ class Router
             $this->currentController->index();
         });
 
-        $this->add_route('/reservation/{id}/{name}', function ($param) {
+        $this->add_route('/reservation/{id}', function ($param) {
             $this->currentController = new CarController();
             $this->currentController->showReservationDetails($param);
         });
@@ -28,6 +28,11 @@ class Router
         $this->add_route('/connexion', function () {
             $this->currentController = new UserController();
             $this->currentController->showConnexionForm();
+        });
+
+        $this->add_route('/connecter', function () {
+            $this->currentController = new UserController();
+            $this->currentController->processLogin();
         });
 
         $this->add_route('/contact', function () {
