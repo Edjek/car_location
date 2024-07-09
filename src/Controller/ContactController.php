@@ -2,10 +2,12 @@
 
 namespace App\Controller;
 
-class ContactController
+use App\Controller\AbstractController;
+
+class ContactController extends AbstractController
 {
     public function showContactForm()
     {
-        require_once '../templates/contact.php';
+        $this->render('contact');
     }
 }
