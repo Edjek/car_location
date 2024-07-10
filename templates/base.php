@@ -18,10 +18,13 @@ $session = new Session();
 </head>
 
 <body>
-    <header>
-        <a href="<?= SITE_NAME; ?>/">accueil</a>
-        <a href="<?= SITE_NAME; ?>/contact">contact</a>
-        <a href="<?= SITE_NAME; ?>/connexion">connexion</a>
+    <header class="container-fluid">
+        <nav class="navbar navbar-light bg-light">
+            <a class="navbar-brand" href="#">Car Rental</a>
+            <a class="nav-link" href="<?= SITE_NAME; ?>/">accueil</a>
+            <a class="nav-link" href="<?= SITE_NAME; ?>/contact">contact</a>
+            <a class="nav-link" href="<?= SITE_NAME; ?>/connexion">connexion</a>
+        </nav>
     </header>
 
     <?= $session->displayFlashMessage(); ?>

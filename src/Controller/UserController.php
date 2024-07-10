@@ -45,6 +45,9 @@ class UserController extends AbstractController
             $session->setFlashMessage('Vous êtes connecté', 'primary');
             header('Location: ' . SITE_NAME . '/');
             exit;
+        } else {
+            header('Location: ' . SITE_NAME . '/connexion');
+            exit;
         }
     }
 }

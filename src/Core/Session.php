@@ -14,7 +14,7 @@ class Session
     public function setFlashMessage(string $message, string $color = 'primary')
     {
         $_SESSION['message'] = '
-        <div class="alert alert-' . $color . ' alert-dismissible fade show" role="alert">' . $message . '
+        <div class="w-50 m-auto alert alert-' . $color . ' alert-dismissible fade show" role="alert">' . $message . '
 
           <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>';
