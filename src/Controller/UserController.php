@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Controller\AbstractController;
+use App\Core\Session;
 use App\Repository\UserRepository;
 
 class UserController extends AbstractController
@@ -15,8 +16,12 @@ class UserController extends AbstractController
     public function processLogin()
     {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $session = new Session();
+
             if (!isset($_POST['email']) || !isset($_POST['pswd']) || empty($_POST['email']) || empty($_POST['pswd'])) {
-                echo 'erreur';
+                $session->setFlashMessage('Veuillez remplir tous les champs', 'danger');
+                header('Location: ' . SITE_NAME . '/connexion');
+                exit;
             }
 
             $email = trim($_POST['email']);
@@ -26,14 +31,20 @@ class UserController extends AbstractController
             $user = $userRepository->getUserByEmail($email);
 
             if ($user == false) {
-                echo 'cet utilisateur';
+                $session->setFlashMessage('Veuillez verifier vos identifiants', 'warning');
+                header('Location: ' . SITE_NAME . '/connexion');
+                exit;
             }
 
             if ($user['mot_de_passe']  !== $pswd) {
-                echo 'y a erreur';
+                $session->setFlashMessage('Veuillez verifier vos identifiants', 'warning');
+                header('Location: ' . SITE_NAME . '/connexion');
+                exit;
             }
 
-            
+            $session->setFlashMessage('Vous êtes connecté', 'primary');
+            header('Location: ' . SITE_NAME . '/');
+            exit;
         }
     }
 }
