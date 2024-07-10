@@ -139,6 +139,10 @@ INSERT INTO car (model, description, price, image_path) VALUES
 ('Mercedes-Benz C-Class', 'Berline de luxe avec un intérieur raffiné', 48.99, 'images/mercedes_benz_c_class.jpg'),
 ('Volkswagen Golf', 'Compacte polyvalente avec une bonne tenue de route', 25.99, 'images/volkswagen_golf.jpg'),
 ('Nissan Leaf', 'Voiture électrique compacte avec une autonomie décente', 30.99, 'images/nissan_leaf.jpg');
+
+-- Insertion de données
+INSERT INTO user (pseudo, email, mot_de_passe, statut) VALUES
+('admin', 'admin@gmail.com', 'admin', true),('user', 'user@gmail.com', 'user', false);
 ```
 
 ## Exercice Pratique
