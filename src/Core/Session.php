@@ -11,10 +11,10 @@ class Session
         }
     }
 
-    public function setFlashMessage(string $message, string $color = 'primary')
+    public function setFlashMessage(string $content, string $alertType = 'primary')
     {
         $_SESSION['message'] = '
-        <div class="w-50 m-auto alert alert-' . $color . ' alert-dismissible fade show" role="alert">' . $message . '
+        <div class="w-50 m-auto alert alert-' . $alertType . ' alert-dismissible fade show" role="alert">' . $content . '
 
           <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>';
@@ -22,7 +22,7 @@ class Session
 
     public function displayFlashMessage()
     {
-        if(isset($_SESSION['message'])){
+        if (isset($_SESSION['message'])) {
             echo $_SESSION['message'];
             unset($_SESSION['message']);
         }
