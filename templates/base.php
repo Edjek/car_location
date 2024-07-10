@@ -25,8 +25,6 @@ $session = new Session();
     </header>
 
     <?= $session->displayFlashMessage(); ?>
-
-
     <?= $content; ?>
 
     <footer></footer>
