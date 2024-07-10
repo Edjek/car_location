@@ -11,7 +11,7 @@ class Session
         }
     }
 
-    public function setFlashMessage(string $content, string $alertType = 'primary')
+    public function addFlashMessage(string $content, string $alertType = 'primary')
     {
         $_SESSION['message'] = '
         <div class="w-50 m-auto alert alert-' . $alertType . ' alert-dismissible fade show" role="alert">' . $content . '
