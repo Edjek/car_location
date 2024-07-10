@@ -95,11 +95,12 @@ Le projet utilise une base de données MySQL. Suivez les étapes ci-dessous pour
 
     ```sql
     -- Table Clients
-    CREATE TABLE client (
+    CREATE TABLE user (
         id INT AUTO_INCREMENT PRIMARY KEY,
-        name VARCHAR(100) NOT NULL,
-        email VARCHAR(100) NOT NULL,
-        phone VARCHAR(20)
+        pseudo VARCHAR(255) NOT NULL,
+        email VARCHAR(100) NOT NULL UNIQUE,
+        mot_de_passe VARCHAR(255) NOT NULL,
+        statut BOOLEAN DEFAULT false
     );
 
     -- Table Voitures
@@ -107,8 +108,8 @@ Le projet utilise une base de données MySQL. Suivez les étapes ci-dessous pour
         id INT AUTO_INCREMENT PRIMARY KEY,
         model VARCHAR(255) NOT NULL,
         description TEXT,
-        rental_price DECIMAL(10, 2),
-        image VARCHAR(255)
+        price DECIMAL(10, 2),
+        image_path VARCHAR(255)
     );
 
     -- Table Locations

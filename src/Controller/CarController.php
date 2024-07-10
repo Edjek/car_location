@@ -8,6 +8,6 @@ class CarController extends AbstractController
 {
     public function showReservationDetails($param)
     {
-        $this->render('reservation', ['id' => $param['id']]);
+        $this->render('reservation', ['id' => $param, 'title'=> 'fefef']);
     }
 }

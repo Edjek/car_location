@@ -1,8 +1,8 @@
 <main>
 <section>
     <h1>Connexion</h1>
-    
-    <form action="/car-location/connecter" method="post">
+
+    <form action="<?= SITE_NAME; ?>/connecter" method="post">
         <div>
             <label for="email">Email</label>
             <input type="email" id="email" name="email">
