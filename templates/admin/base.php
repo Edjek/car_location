@@ -18,8 +18,8 @@ $session = new Session();
 </head>
 
 <body>
-    <header class="container-fluid">
-        <nav class="navbar navbar-light bg-light">
+    <header class="container">
+        <nav class="navbar navbar-light bg-light p-3">
             <a class="navbar-brand" href="#">Car Rental</a>
             <a class="nav-link" href="<?= SITE_NAME; ?>/">accueil</a>
             <a class="nav-link" href="<?= SITE_NAME; ?>/contact">contact</a>
@@ -28,7 +28,7 @@ $session = new Session();
         </nav>
     </header>
 
-    <main>
+    <main class="container p-3">
         <?= $session->displayFlashMessage(); ?>
         <?= $content; ?>
     </main>
