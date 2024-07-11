@@ -2,7 +2,7 @@
     <h1>Connexion</h1>
 
     <div class="w-50 m-auto">
-        <form action="<?= SITE_NAME; ?>/connecter" method="post">
+        <form action="<?= SITE_NAME; ?>/connection/soumettre" method="post">
             <div class="mb-3">
                 <label class="form-label" for="email">Email</label>
                 <input class="form-control" type="email" id="email" name="email">

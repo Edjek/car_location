@@ -1,6 +1,6 @@
 <section>
     <div class="w-75 mx-auto mt-5 p-4 border rounded">
-        <form action="" method="post">
+        <form action="<?= SITE_NAME; ?>/dashboard/users/modifier/soumettre" method="post">
             <div class="mb-3">
                 <label for="name" class="form-label">pseudo</label>
                 <input type="text" id="name" class="form-control" value="<?= $user['pseudo']; ?>">

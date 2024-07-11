@@ -21,4 +21,8 @@ class AdminUserController extends AbstractAdminController
         $user = $repository->getUserById($param['id']);
         $this->render('user-update-form', ['user' => $user]);
     }
+
+    public function processUpdateUser()
+    {
+    }
 }

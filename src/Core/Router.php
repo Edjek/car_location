@@ -32,7 +32,7 @@ class Router
             $this->currentController->showConnexionForm();
         });
 
-        $this->add_route('/connecter', function () {
+        $this->add_route('/connection/soumettre', function () {
             $this->currentController = new UserController();
             $this->currentController->processLogin();
         });
@@ -52,9 +52,13 @@ class Router
             $this->currentController->index();
         });
 
-        $this->add_route('/dashboard/user/modifier/{id}', function ($param) {
+        $this->add_route('/dashboard/users/modifier/{id}', function ($param) {
             $this->currentController = new AdminUserController();
             $this->currentController->showUserUpdateForm($param);
+        });
+        $this->add_route('/dashboard/users/modifier/soumettre', function () {
+            $this->currentController = new AdminUserController();
+            $this->currentController->processUpdateUser();
         });
     }
 
