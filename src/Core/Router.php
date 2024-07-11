@@ -51,6 +51,11 @@ class Router
             $this->currentController = new AdminUserController();
             $this->currentController->index();
         });
+
+        $this->add_route('/dashboard/users/modifier/{id}', function ($param) {
+            $this->currentController = new AdminUserController();
+            $this->currentController->showUserUpdateForm($param);
+        });
     }
 
     private function add_route(string $route, callable $closure)
