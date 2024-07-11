@@ -1,4 +1,4 @@
-<main>
+<section>
     <div class="w-75 mx-auto mt-5 p-4 border rounded">
         <form action="" method="post">
             <div class="mb-3">
@@ -12,4 +12,4 @@
             <input type="submit" value="Envoyer" class="btn btn-primary">
         </form>
     </div>
-</main>
+</section>

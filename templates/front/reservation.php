@@ -1,4 +1,3 @@
-<main>
+<section>
     <?php echo $id; ?>
-    
-</main>
+</section>

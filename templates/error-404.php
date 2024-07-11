@@ -1,3 +1,3 @@
-<main>
+<section>
     <h1>Error 404</h1>
-</main>
+</section>

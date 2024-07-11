@@ -28,8 +28,10 @@ $session = new Session();
         </nav>
     </header>
 
-    <?= $session->displayFlashMessage(); ?>
-    <?= $content; ?>
+    <main>
+        <?= $session->displayFlashMessage(); ?>
+        <?= $content; ?>
+    </main>
 
     <footer></footer>
 </body>
