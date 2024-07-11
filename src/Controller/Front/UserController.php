@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\Front;
 
-use App\Controller\AbstractController;
+use App\Controller\Front\AbstractController;
 use App\Core\Session;
 use App\Repository\UserRepository;
 
@@ -15,6 +15,8 @@ class UserController extends AbstractController
 
     public function processLogin()
     {
+
+
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $session = new Session();
 
