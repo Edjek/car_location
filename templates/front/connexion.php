@@ -1,7 +1,7 @@
 <section>
     <h1>Connexion</h1>
 
-    <div class="w-50 m-auto">
+    <div>
         <form action="<?= SITE_NAME; ?>/connection/soumettre" method="post">
             <div class="mb-3">
                 <label class="form-label" for="email">Email</label>
