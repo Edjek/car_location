@@ -8,6 +8,11 @@
             </div>
 
             <div class="mb-3">
+                <label for="price" class="form-label">Prix</label>
+                <input type="text" name="price" id="price" class="form-control">
+            </div>
+
+            <div class="mb-3">
                 <label for="description" class="form-label">Description</label>
                 <textarea name="description" id="description" class="form-control"></textarea>
             </div>
