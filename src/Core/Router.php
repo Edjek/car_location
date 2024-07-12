@@ -56,7 +56,7 @@ class Router
             $this->currentController = new AdminUserController();
             $this->currentController->showUserUpdateForm($param);
         });
-        $this->add_route('/dashboard/users/modifier/soumettre', function () {
+        $this->add_route('/dashboard/users/modifier-user', function () {
             $this->currentController = new AdminUserController();
             $this->currentController->processUpdateUser();
         });
