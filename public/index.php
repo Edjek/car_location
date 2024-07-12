@@ -10,7 +10,5 @@ use App\Core\Router;
 Autoloader::autoload();
 Database::initConnection();
 
-// $pdo = Database::getConnexion();
-
 $router = new Router();
 $router->execute();
