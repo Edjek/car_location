@@ -2,6 +2,13 @@
     <h1>Dashboard des véhicules</h1>
 
     <a href="<?= SITE_NAME; ?>/dashboard/cars/ajouter" class="btn btn-success my-3">Ajouter un nouveau véhicules</a>
+
+    <!-- cette route appelle le AdminCarController -->
+    <!-- qui appelle la method showCarCreateForm -->
+    <!-- affiche la page : car-create-form -->
+    <!-- creez le dormulaire et ensuite le traiter en creant une route de le action -->
+
+
     <div class="p-3 border rounded">
         <table class="table table-striped">
             <thead>
