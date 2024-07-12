@@ -66,7 +66,7 @@ $this->add_route('/', function () {
 
 ### Exemple de contrôleur
 
-Le contrôleur est appelé et la méthode est exécutée pour récupérer les données nécessaires et afficher la vue. Les contrôleurs sont stockés dans le dossier `Controllers` et héritent de la classe `AbstractController`.
+Le contrôleur est appelé et la méthode est exécutée pour récupérer les données nécessaires et afficher la vue. Les contrôleurs sont stockés dans le dossier `Controllers` et héritent de la classe `AbstractController`, qui contient la méthode `render()` pour afficher la vue.
 
 ```php
 <?php
