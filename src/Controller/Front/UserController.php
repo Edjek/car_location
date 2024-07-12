@@ -13,10 +13,24 @@ class UserController extends AbstractController
         $this->render('connexion');
     }
 
+    public function deconnexion()
+    {
+        // Supprime toutes les variables de session
+        session_unset();
+
+        // Détruit la session
+        session_destroy();
+
+        // Supprime toutes les variables de session résiduelles
+        $_SESSION = [];
+
+        // Redirige vers la page d'accueil
+        header('Location: ' . SITE_NAME . '/');
+        exit;
+    }
+
     public function processLogin()
     {
-
-
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $session = new Session();
 
@@ -44,6 +58,7 @@ class UserController extends AbstractController
                 exit;
             }
 
+            $session->createSession($user);
             $session->setFlashMessage('Vous êtes connecté', 'primary');
             header('Location: ' . SITE_NAME . '/');
             exit;

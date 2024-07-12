@@ -3,6 +3,7 @@
 namespace App\Core;
 
 use App\Controller\Admin\AdminController;
+use App\Controller\Admin\AdminCarController;
 use App\Controller\Admin\AdminUserController;
 use App\Controller\Front\CarController;
 use App\Controller\Front\ContactController;
@@ -25,6 +26,11 @@ class Router
         $this->add_route('/reservation/{id}', function ($param) {
             $this->currentController = new CarController();
             $this->currentController->showReservationDetails($param);
+        });
+
+        $this->add_route('/deconnexion', function () {
+            $this->currentController = new UserController();
+            $this->currentController->deconnexion();
         });
 
         $this->add_route('/connexion', function () {
@@ -52,11 +58,20 @@ class Router
             $this->currentController->index();
         });
 
+        $this->add_route('/dashboard/cars', function () {
+            $this->currentController = new AdminCarController();
+            $this->currentController->index();
+        });
+        $this->add_route('/dashboard/cars/ajouter', function () {
+            $this->currentController = new AdminCarController();
+            $this->currentController->addCar();
+        });
+
         $this->add_route('/dashboard/users/modifier/{id}', function ($param) {
             $this->currentController = new AdminUserController();
             $this->currentController->showUserUpdateForm($param);
         });
-        $this->add_route('/dashboard/users/modifier/soumettre', function () {
+        $this->add_route('/dashboard/users/modifier-user', function () {
             $this->currentController = new AdminUserController();
             $this->currentController->processUpdateUser();
         });
