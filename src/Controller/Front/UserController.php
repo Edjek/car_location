@@ -15,16 +15,10 @@ class UserController extends AbstractController
 
     public function deconnexion()
     {
-        // Supprime toutes les variables de session
+        session_start();
         session_unset();
-
-        // Détruit la session
         session_destroy();
 
-        // Supprime toutes les variables de session résiduelles
-        $_SESSION = [];
-
-        // Redirige vers la page d'accueil
         header('Location: ' . SITE_NAME . '/');
         exit;
     }

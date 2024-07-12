@@ -62,9 +62,15 @@ class Router
             $this->currentController = new AdminCarController();
             $this->currentController->index();
         });
+
         $this->add_route('/dashboard/cars/ajouter', function () {
             $this->currentController = new AdminCarController();
-            $this->currentController->addCar();
+            $this->currentController->showCarCreateForm();
+        });
+
+        $this->add_route('/dashboard/cars/create-car', function () {
+            $this->currentController = new AdminCarController();
+            $this->currentController->processCarCreateForm();
         });
 
         $this->add_route('/dashboard/users/modifier/{id}', function ($param) {
