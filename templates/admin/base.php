@@ -23,7 +23,17 @@ $session = new Session();
             <a class="navbar-brand" href="#">Car Rental</a>
             <a class="nav-link" href="<?= SITE_NAME; ?>/">accueil</a>
             <a class="nav-link" href="<?= SITE_NAME; ?>/contact">contact</a>
-            <a class="nav-link" href="<?= SITE_NAME; ?>/connexion">connexion</a>
+            <?php
+            if (isset($_SESSION['LOGGED_ID'])) {
+            ?>
+                <a class="nav-link" href="<?= SITE_NAME; ?>/deconnexion">deconnexion</a>
+            <?php
+            } else {
+            ?>
+                <a class="nav-link" href="<?= SITE_NAME; ?>/connexion">connexion</a>
+            <?php
+            }
+            ?>
             <a class="nav-link" href="<?= SITE_NAME; ?>/dashboard">dashboard</a>
         </nav>
     </header>
