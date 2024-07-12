@@ -20,7 +20,7 @@ $session = new Session();
 <body>
     <header class="container">
         <nav class="navbar navbar-light bg-light p-3">
-            <a class="navbar-brand" href="#">Car Rental</a>
+            <a class="navbar-brand" href="<?= SITE_NAME; ?>/">Car Rental</a>
             <a class="nav-link" href="<?= SITE_NAME; ?>/">accueil</a>
             <a class="nav-link" href="<?= SITE_NAME; ?>/contact">contact</a>
             <a class="nav-link" href="<?= SITE_NAME; ?>/dashboard">dashboard</a>
