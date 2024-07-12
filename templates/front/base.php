@@ -23,7 +23,13 @@ $session = new Session();
             <a class="navbar-brand" href="#">Car Rental</a>
             <a class="nav-link" href="<?= SITE_NAME; ?>/">accueil</a>
             <a class="nav-link" href="<?= SITE_NAME; ?>/contact">contact</a>
-
+            <?php
+            if (isset($_SESSION['LOGGED_ADMIN']) && $_SESSION['LOGGED_ADMIN']) {
+            ?>
+                <a class="nav-link" href="<?= SITE_NAME; ?>/dashboard">dashboard</a>
+            <?php
+            }
+            ?>
             <?php
             if (isset($_SESSION['LOGGED_ID'])) {
             ?>
@@ -36,13 +42,6 @@ $session = new Session();
             }
             ?>
 
-            <?php
-            if (isset($_SESSION['LOGGED_ADMIN']) && $_SESSION['LOGGED_ADMIN']) {
-            ?>
-                <a class="nav-link" href="<?= SITE_NAME; ?>/dashboard">dashboard</a>
-            <?php
-            }
-            ?>
 
         </nav>
     </header>

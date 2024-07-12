@@ -23,6 +23,7 @@ $session = new Session();
             <a class="navbar-brand" href="#">Car Rental</a>
             <a class="nav-link" href="<?= SITE_NAME; ?>/">accueil</a>
             <a class="nav-link" href="<?= SITE_NAME; ?>/contact">contact</a>
+            <a class="nav-link" href="<?= SITE_NAME; ?>/dashboard">dashboard</a>
             <?php
             if (isset($_SESSION['LOGGED_ID'])) {
             ?>
@@ -34,7 +35,6 @@ $session = new Session();
             <?php
             }
             ?>
-            <a class="nav-link" href="<?= SITE_NAME; ?>/dashboard">dashboard</a>
         </nav>
     </header>
 
